@@ -176,7 +176,12 @@
                 var ainiframe = idocument.querySelector('a');
                 var href = ainiframe.href;
                 console.log("The HREF Value is: "+href);
-                window.open(href,"_blank");
+                var r = confirm("Press a button!");
+                 if (r == true) {
+                   window.open(href,'_top');
+                      } else {
+                             alert();;
+  }
             }
         </script>
         <script>
