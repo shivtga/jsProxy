@@ -1,175 +1,171 @@
-<!doctype html>
 <html>
-<head>
-  <title>Page Sandbox</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-  <base target="_blank">
-  <style>
-    h1   {
-      padding: 0 0.5em;
-      font-family: Arial;
-    }
-    body {
-      padding: 0 0.5em;
-    }
-    .box {
-      margin-top: 1em;
-    }
-    #txtURL {
-      width: 100%;
-      height: 2em;
-      text-indent: 0.5em;
-      padding: 0.25em 0;
-    }
-    #btnGo {
-      width: 100%;
-      font-size: 1.5em;
-    }
-    #list a {
-      margin: 1em;
-    }
-  </style>
-</head>
+<head><title>Random Google Ads Code Generator</head></title><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script></head>
 <body>
-  <div>
-    <h1>Service Worker Proxy</h1><hr>
-  </div><br>
-  <div class="box">
-    <input id="txtURL" type="text" value="www.google.com" autofocus>
-  </div>
-  <div class="box">
-    <button id="btnGo">Go</button>
-  </div>
-  <div class="box">
-    <span>切换线路:</span>
-    <select id="selNode"></select>
-  </div>
-  <div class="box" id="list">
-  </div>
-  <script>
-    const PAGE_CONF_SET = 110
-    const PAGE_CONF_GET = 111
+    <div id="iframe-div">
+        <h1>iFrame Will Load Here</h1>
+    </div>
 
-    const SW_CONF_RETURN = 112
-    const SW_CONF_CHANGE = 113
-
-    const PAGE_READY_CHECK = 200
-    const SW_READY = 201
-
-    const sw = navigator.serviceWorker
-
-
-    sw.addEventListener('message', onSwMsg)
-    sendMsgToSw(PAGE_READY_CHECK)
-
-    btnGo.onclick = function() {
-      const text = txtURL.value.trim()
-      if (text) {
-        const url = './-----' + text
-        open(url, '_blank', 'noopener,noreferrer')
-      }
-    }
-    txtURL.onkeypress = function(e) {
-      if (e.keyCode === 13) {
-        btnGo.onclick()
-      }
-    }
-    txtURL.setSelectionRange(0, txtURL.value.length)
-
-
-    function onSwMsg(e) {
-      const [cmd, msg] = e.data
-
-      switch (cmd) {
-      case SW_CONF_RETURN:
-        conf = msg
-        showConf()
-        break
-
-      case SW_CONF_CHANGE:
-        conf = msg
-        updateSelected()
-        break
-
-      case SW_READY:
-        console.log('sw ready')
-        showIcons()
-        sendMsgToSw(PAGE_CONF_GET)
-        break
-      }
-    }
-
-    function onSwFail(err) {
-      txtURL.value = err
-    }
-
-    selNode.onchange = function() {
-      const item = this.options[this.selectedIndex]
-      const node = item.value
-      conf.node_default = node
-      sendMsgToSw(PAGE_CONF_SET, conf)
-    }
-
-    function sendMsgToSw(cmd, val) {
-      const ctl = sw.controller
-      if (!ctl) {
-        console.log('ctl is null')
-        return
-      }
-      ctl.postMessage([cmd, val])
-    }
-
-    const SITE_LIST = [
-      ['google', ''],
-      ['youtube', ''],
-      ['twitter', 'twitter.com/google'],
-      ['flickr', ''],
-      ['quora', 'www.quora.com/topic/JavaScript-programming-language'],
-      ['twitch', 'www.twitch.tv/'],
-      ['reddit', ''],
-      ['wiki', 'zh.wikipedia.org/'],
-      ['gist', 'gist.github.com/'],
-      ['facebook', 'facebook.com/Google/'],
-      ['blogger', ''],
-    ]
-
-    function showIcons() {
-      list.innerHTML = SITE_LIST.map(v => {
-        let [id, url] = v
-        url = url || `www.${id}.com/`
-        return `\
-<a rel="noopener noreferrer" href=./-----https://${url}>\
-<img width=128 height=128 src=__sys__/assets/ico/${id}.png></a>`
-      }).join('')
-    }
-
-    function addNodeItem(id, text) {
-      const optEl = document.createElement('option')
-      optEl.id = '--' + id
-      optEl.text = text
-      optEl.value = id
-      selNode.appendChild(optEl)
-    }
-
-    function updateSelected() {
-      const id = conf.node_default
-      const item = document.getElementById('--' + id)
-      if (item) {
-        item.selected = true
-      } else {
-        console.warn('unknown node:', id)
-      }
-    }
-
-    function showConf() {
-      for (const [id, node] of Object.entries(conf.node_map)) {
-        if (!node.hidden) {
-          addNodeItem(id, node.label)
+    <script>
+        function getProxyURL(){
+            return('https://still-mouse-f7d5.dhanwaaninvestor.workers.dev/-----');
         }
-      }
-      updateSelected()
-    }
-  </script>
+
+        var ProxyURL = getProxyURL();
+        
+        function getFEXP01(){
+        return Math.floor(Math.random() * (99999 - 10000)) + 10000;
+        }
+        function getFEXP02(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP03(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP04(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP05(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP06(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP07(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP08(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP09(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getFEXP10(){
+        return Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+        }
+        function getNoCacheValue(){
+        return Math.floor(Math.random() * (999999999999 - 100000000000)) + 100000000000;
+        }
+    
+        var FEXP01 = getFEXP01();
+        var FEXP02 = getFEXP02();
+        var FEXP03 = getFEXP03();
+        var FEXP04 = getFEXP04();
+        var FEXP05 = getFEXP05();
+        var FEXP06 = getFEXP06();
+        var FEXP07 = getFEXP07();
+        var FEXP08 = getFEXP08();
+        var FEXP09 = getFEXP09();
+        var FEXP10 = getFEXP10();
+        var NoCacheValue = getNoCacheValue();
+
+        var FEXPValue = FEXP01+','+FEXP02+','+FEXP03+','+FEXP04+','+FEXP05+','+FEXP06+','+FEXP07+','+FEXP08+','+FEXP09+','+FEXP10;
+        var encodedFEXPValue = encodeURIComponent(FEXPValue);
+        console.clear();
+        console.log(FEXPValue);
+        console.log(encodedFEXPValue);
+        console.log(NoCacheValue);
+    </script>
+        <script>
+            function getCountryRandomDigit(){
+                return Math.floor(Math.random() * (18-1))+1;
+            }
+    
+            var randomCountryDigit = getCountryRandomDigit();
+            console.log(randomCountryDigit);
+            if (randomCountryDigit <= 16) {
+                console.log('United States');
+                var countryCode = 'US';
+            }else{
+                if(randomCountryDigit = 17){
+                    console.log('Australia');
+                    var countryCode = 'AU';
+                }   
+                }
+            
+
+            function getRandomCityCode(){
+                return Math.floor(Math.random() * (5-1))+1;
+            }
+
+            var randomCityCode = getRandomCityCode();
+
+            if(countryCode == 'US'){
+                if(randomCityCode == '1'){
+                    var CityName = 'Texas';
+                }else{
+                    if(randomCityCode == '2'){
+                        var CityName = 'California';
+                    }else{
+                        if(randomCityCode == '3'){
+                            var CityName = 'Florida';
+                        }else{
+                            if(randomCityCode == '4'){
+                                var CityName = 'Texas';
+                            }
+                        }
+                    }
+                }
+            }else{
+                if(countryCode == 'AU'){
+                    if(randomCityCode == '1'){
+                        var CityName = 'Sydney';
+                    }else{
+                        if(randomCityCode == '2'){
+                            var CityName = 'Melbourne';
+                        }else{
+                            if(randomCityCode > '2'){
+                                var countryCode = 'US';
+                                var CityName = 'Texas';
+                                console.log('Changed to USA');
+                            }
+                        }
+                    }
+                }
+            }
+            console.log(CityName);
+        </script>
+        <script>
+            function getBaseSearchTermDigit(){
+                return Math.floor(Math.random() * (6-1))+1;
+            }
+
+            var BaseSearchTermDigit = getBaseSearchTermDigit();
+
+            if(BaseSearchTermDigit == '1'){
+                var BaseSearchTerm = 'car insurance';
+            }else{
+                if(BaseSearchTermDigit == '2'){
+                    var BaseSearchTerm = 'car insurance quotes';
+                }else{
+                    if(BaseSearchTermDigit == '3'){
+                        var BaseSearchTerm = 'auto insurance car insurance';
+                    }else{
+                        if(BaseSearchTermDigit == '4'){
+                            var BaseSearchTerm = 'auto insurance quotes car insurance';
+                        }else{
+                            if(BaseSearchTermDigit == '5'){
+                                var BaseSearchTerm = 'insurance for car';
+                            }
+                        }
+                    }
+                }
+            }
+
+            console.log(BaseSearchTerm);
+        </script>
+        <script>
+            var finalSearchTerm = BaseSearchTerm+' in '+CityName;
+            console.log(finalSearchTerm);
+
+            var encodedfinalSearchTerm = encodeURIComponent(finalSearchTerm);
+            console.log(encodedfinalSearchTerm);
+        </script>
+        <scirpt type="text/javascript" src="https://still-mouse-f7d5.dhanwaaninvestor.workers.dev/__sys__/helper.js"></scirpt>
+        <script>
+            var iFrameCode = '<iframe frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" scrolling="no" width="100%" name="{&quot;name&quot;:&quot;master-1&quot;,&quot;master-1&quot;:{&quot;personalizedAds&quot;:false,&quot;position&quot;:&quot;top&quot;,&quot;cseGoogleHosting&quot;:&quot;partner&quot;,&quot;hl&quot;:&quot;en&quot;,&quot;columns&quot;:1,&quot;horizontalAlignment&quot;:&quot;center&quot;,&quot;resultsPageQueryParam&quot;:&quot;query&quot;,&quot;type&quot;:&quot;ads&quot;,&quot;linkTarget&quot;:&quot;_top&quot;}}" id="master-1" src="'+ProxyURL+'https://cse.google.com/cse_v2/ads?adsafe=low&amp;cpp=0&amp;cx=fa76e13ee2f2c7fa1&amp;hl=en&amp;pcsa=false&amp;client=google-coop&amp;q='+encodedfinalSearchTerm+'&amp;r=m&amp;type=0&amp;oe=UTF-8&amp;ie=UTF-8&amp;fexp='+encodedFEXPValue+'&amp;format=p4&amp;ad=p4&amp;nocache='+NoCacheValue+'&amp;num=0&amp;output=uds_ads_only&amp;source=gcsc&amp;v=3&amp;adext=as1%2Csr1&amp;bsl=10&amp;pac=0&amp;u_his=5&amp;u_tz=330&amp;u_w=1536&amp;u_h=864&amp;biw=1536&amp;bih=754&amp;psw=1536&amp;psh=754&amp;frm=0&amp;uio=sl1sr1-&amp;inames=master-1&amp;jsv=10737&amp;rurl=https%3A%2F%2Fnowpayments.tk%2F#master-1" style="visibility: visible; height: 688px; display: block;" title="Ads by Google" data-bm="88"></iframe>';
+            console.log(iFrameCode);
+
+            document.getElementById('iframe-div').innerHTML = iFrameCode;
+       </script>
 </body>
 </html>
